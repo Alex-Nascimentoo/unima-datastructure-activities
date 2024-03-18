@@ -3,28 +3,50 @@ import Models.Student;
 
 public class Main {
     public static void main(String[] args) {
-        Student s1 = new Student();
-        Student s2 = new Student();
-        Student s3 = new Student();
-        Student s4 = new Student();
-
-        s1.setName("Alex");
-        s2.setName("Davi");
-        s3.setName("Gomes");
-        s4.setName("asdfjk");
-
+        String[] nameList = new String[]{
+            "Alex",
+            "Davi",
+            "Gomes",
+            "Everton",
+            "Gabriel",
+            "Alan",
+            "Alysson",
+            "joao",
+            "Luiz",
+            "Arthur",
+            "Anthony",
+            "Henrique",
+            "Lais",
+            "Natalia",
+            "Jose"
+        };
         Vector studentList = new Vector();
 
-        studentList.add(s1);
-        studentList.add(s2);
-        studentList.add(1, s3);
+        for(int i = 0; i < 15; i++) {
+            Student newStudent = new Student();
+            newStudent.setName(nameList[i]);
 
-        boolean result = studentList.has(s4);
+            studentList.add(newStudent);
+        }
 
-        System.out.println(result);
+        String result = studentList.toString();
 
-//        Tests tests = new Tests();
-//
-//        tests.testAll();
+        System.out.println("lista primaria: " + result);
+
+        studentList.remove(3);
+        studentList.remove(4);
+
+        Student s1 = new Student();
+        Student s2 = new Student();
+
+        s1.setName("Rodrigo");
+        s2.setName("Casimiro");
+
+        studentList.add(3, s1);
+        studentList.add(4, s2);
+
+        String newResult = studentList.toString();
+
+        System.out.println("Nova lista: " + newResult);
     }
 }
